@@ -375,16 +375,27 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         if data.startswith("taste_"):
-    user["taste"] = data.split("_", 1)[1]
-    tea = pick_tea(user)
+            user["taste"] = data.split("_", 1)[1]
+            tea = pick_tea(user)
 
-    keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
-        [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
-    ])
+            keyboard = InlineKeyboardMarkup([
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
+                [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
+            ])
 
-    await send_tea_with_photo(update, context, tea, keyboard, edit=True)
-    return
+            await send_tea_with_photo(update, context, tea, keyboard, edit=True)
+            return
+
+        if data == "another":
+            tea = pick_tea(user)
+
+            keyboard = InlineKeyboardMarkup([
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
+                [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
+            ])
+
+            await send_tea_with_photo(update, context, tea, keyboard, edit=True)
+            return
 
         if data == "another":
     tea = pick_tea(user)
