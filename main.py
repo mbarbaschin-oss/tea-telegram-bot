@@ -379,11 +379,13 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             tea = pick_tea(user)
             # кнопки результата
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
-                InlineKeyboardButton(
-                    "Спросить про этот чай",
-                    url=tea.get("order_url")
-                )
+    [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
+    [InlineKeyboardButton(
+        "Спросить про этот чай",
+        url=tea.get("order_url")
+    )]
+])
+
 
             # отправляем с фото если есть (в базе можно добавить поле image: "https://...")
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
@@ -392,12 +394,14 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if data == "another":
             # показать другой чай по той же логике - просто повторно вызываем pick_tea
             tea = pick_tea(user)
-            keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
-               InlineKeyboardButton(
-                    "Спросить про этот чай",
-                   url=tea.get("order_url")
-               )
+           keyboard = InlineKeyboardMarkup([
+    [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
+    [InlineKeyboardButton(
+        "Спросить про этот чай",
+        url=tea.get("order_url")
+    )]
+])
+
 
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
             return
