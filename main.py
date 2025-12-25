@@ -391,7 +391,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
             keyboard = InlineKeyboardMarkup([
                 [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
-                [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
+                [InlineKeyboardButton("Спросить про этот чай", url=tea.get["order_url"])]
             ])
 
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
