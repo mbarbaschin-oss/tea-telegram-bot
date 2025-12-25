@@ -75,8 +75,7 @@ def pick_tea(user: dict):
     # 1. strict filter
     candidates = unseen([t for t in TEAS if strict_pred(t)])
 
-    async def is_subscribed(context: ContextTypes.DEFAULT_TYPE, user_id: int) -> bool:
-    try:
+    async def is_subscribed(context: ContextTypes.DEFAULT_TYPE, user_id: int) -> bool:try:
         member = await context.bot.get_chat_member(CHANNEL_USERNAME, user_id)
         return member.status in ("member", "administrator", "creator")
     except Exception:
