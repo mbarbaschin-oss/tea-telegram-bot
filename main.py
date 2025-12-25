@@ -24,12 +24,12 @@ if not TOKEN:
     logger.error("BOT_TOKEN не задан. Установи переменную окружения BOT_TOKEN.")
     raise SystemExit("BOT_TOKEN не задан")
 
-ORDER_URL = "https://t.me/m/FSNnxRr_NGIy"  # замени на свой ник
+ORDER_URL = "https://t.me/moontea48tg"  # замени на свой ник
 
 # ===== БАЗА ЧАЁВ =====
 TEAS = [
-    {"name_ru":"Шен пуэр 2023, Линцан","year":2023,"name_cn":{"chars":"生普洱（临沧）","pinyin":"Shēng Pǔ'ěr (Líncāng)"},"times":["morning","day"],"states":["tired","focus"],"exp":["regular","expert"],"taste":"bitter","desc":"Шен пуэр, бодрит и даёт структуру."},
-    {"name_ru":"Шен пуэр Биндао, древние деревья","year":None,"name_cn":{"chars":"冰岛古树普洱","pinyin":"Bīngdǎo gǔshù Pǔ'ěr"},"times":["morning"],"states":["tired"],"exp":["expert"],"taste":"bitter","desc":"Интенсивный шен пуэр из Биндао."},
+    {"name_ru":"Шен пуэр 2023, Линцан","year":2023,"name_cn":{"chars":"生普洱（临沧）","pinyin":"Shēng Pǔ'ěr (Líncāng)"},"times":["morning","day"],"states":["tired","focus"],"exp":["regular"],"taste":"bitter","desc":"Шен пуэр, бодрит и даёт структуру."},
+    {"name_ru":"Шен пуэр Биндао, древние деревья","year":None,"name_cn":{"chars":"冰岛古树普洱","pinyin":"Bīngdǎo gǔshù Pǔ'ěr"},"times":["morning"],"states":["tired"],"exp":["expert"],"taste":"bitter","desc":"Интересный шен пуэр из Биндао."},
     {"name_ru":"Шен пуэр Бо Хэ Тан","year":None,"name_cn":{"chars":"(транслит)","pinyin":"Bo He Tan"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"bitter","desc":"Чай для концентрации и бодрости."},
     {"name_ru":"Шу пуэр 7592, Menghai","year":None,"name_cn":{"chars":"勐海 7592 熟普洱","pinyin":"Měnghǎi 7592 Shú Pǔ'ěr"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Тёплый, мягкий, подходит для вечера."},
     {"name_ru":"Шу пуэр Brown Peacock","year":None,"name_cn":{"chars":"(транслит)","pinyin":"Brown Peacock"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Мягкий, сладковатый шэн/шу профиль."},
@@ -173,14 +173,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat = update.effective_chat.id
     USERS[chat] = {"time": None, "state": None, "experience": None, "taste": None, "shown": []}
 
-    intro = "Подберу чай под твоё состояние.\nОтветь на несколько вопросов."
-    keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Утро", callback_data="time_morning")],
-        [InlineKeyboardButton("День", callback_data="time_day")],
-        [InlineKeyboardButton("Вечер", callback_data="time_evening")]
-    ])
-    await send_text(update, intro)
-    await send_text(update, "В какое время дня ты хочешь пить чай?", keyboard)
+   text = (
+    "Подберу чай под твоё состояние.\n"
+    "Ответь на несколько вопросов.\n\n"
+    "В какое время дня ты хочешь пить чай?"
+)
+
+keyboard = InlineKeyboardMarkup([
+    [InlineKeyboardButton("Утро", callback_data="time_morning")],
+    [InlineKeyboardButton("День", callback_data="time_day")],
+    [InlineKeyboardButton("Вечер", callback_data="time_evening")]
+])
+
+await send_text(update, text, keyboard)
 
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
