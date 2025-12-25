@@ -171,21 +171,28 @@ async def send_tea_with_photo(update: Update, context: ContextTypes.DEFAULT_TYPE
 # ===== Хэндлеры =====
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat = update.effective_chat.id
-    USERS[chat] = {"time": None, "state": None, "experience": None, "taste": None, "shown": []}
+    USERS[chat] = {
+        "time": None,
+        "state": None,
+        "experience": None,
+        "taste": None,
+        "shown": []
+    }
 
-   text = (
-    "Подберу чай под твоё состояние.\n"
-    "Ответь на несколько вопросов.\n\n"
-    "В какое время дня ты хочешь пить чай?"
-)
+    text = (
+        "Подберу чай под твоё состояние.\n"
+        "Ответь на несколько вопросов.\n\n"
+        "В какое время дня ты хочешь пить чай?"
+    )
 
-keyboard = InlineKeyboardMarkup([
-    [InlineKeyboardButton("Утро", callback_data="time_morning")],
-    [InlineKeyboardButton("День", callback_data="time_day")],
-    [InlineKeyboardButton("Вечер", callback_data="time_evening")]
-])
+    keyboard = InlineKeyboardMarkup([
+        [InlineKeyboardButton("Утро", callback_data="time_morning")],
+        [InlineKeyboardButton("День", callback_data="time_day")],
+        [InlineKeyboardButton("Вечер", callback_data="time_evening")]
+    ])
 
-await send_text(update, text, keyboard)
+    await send_text(update, text, keyboard)
+
 
 async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
