@@ -24,22 +24,22 @@ if not TOKEN:
     logger.error("BOT_TOKEN не задан. Установи переменную окружения BOT_TOKEN.")
     raise SystemExit("BOT_TOKEN не задан")
 
-ORDER_URL = "https://t.me/moontea48tg"  # замени на свой ник
+ORDER_URL = "https://t.me/m/FSNnxRr_NGIy"  
 
 # ===== БАЗА ЧАЁВ =====
 TEAS = [
-    {"name_ru":"Шен пуэр 2023, Линцан","year":2023,"name_cn":{"chars":"生普洱（临沧）","pinyin":"Shēng Pǔ'ěr (Líncāng)"},"times":["morning","day"],"states":["tired","focus"],"exp":["regular"],"taste":"bitter","desc":"Шен пуэр, бодрит и даёт структуру."},
-    {"name_ru":"Шен пуэр Биндао, древние деревья","year":None,"name_cn":{"chars":"冰岛古树普洱","pinyin":"Bīngdǎo gǔshù Pǔ'ěr"},"times":["morning"],"states":["tired"],"exp":["expert"],"taste":"bitter","desc":"Интересный шен пуэр из Биндао."},
-    {"name_ru":"Шен пуэр Бо Хэ Тан","year":None,"name_cn":{"chars":"(транслит)","pinyin":"Bo He Tan"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"bitter","desc":"Чай для концентрации и бодрости."},
-    {"name_ru":"Шу пуэр 7592, Menghai","year":None,"name_cn":{"chars":"勐海 7592 熟普洱","pinyin":"Měnghǎi 7592 Shú Pǔ'ěr"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Тёплый, мягкий, подходит для вечера."},
-    {"name_ru":"Шу пуэр Brown Peacock","year":None,"name_cn":{"chars":"(транслит)","pinyin":"Brown Peacock"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Мягкий, сладковатый шэн/шу профиль."},
-    {"name_ru":"Да Хун Пао","year":None,"name_cn":{"chars":"大红袍","pinyin":"Dà Hóng Páo"},"times":["day"],"states":["focus","no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Классический уишанский улун, плотный и многогранный."},
-    {"name_ru":"ГАББА Да Хун Пао, Уишань","year":None,"name_cn":{"chars":"GABA 大红袍","pinyin":"GABA Dà Hóng Páo"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"dense","desc":"GABA-обработка делает вкус мягче, но плотным."},
-    {"name_ru":"ГАББА улун Чёрный жемчуг","year":None,"name_cn":{"chars":"GABA 乌龙·黑珍珠","pinyin":"GABA Hēi Zhēnzhū"},"times":["day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Лёгкий улун, мягкий послевкусие."},
-    {"name_ru":"ГАББА улун Дикий мёд","year":None,"name_cn":{"chars":"GABA 乌龙·野蜜","pinyin":"GABA Yěmì"},"times":["day"],"states":["no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Сладковатый, насыщенный улун."},
-    {"name_ru":"Лунцзин","year":None,"name_cn":{"chars":"龙井","pinyin":"Lóngjǐng"},"times":["morning"],"states":["tired"],"exp":["rare","regular"],"taste":"soft","desc":"Свежий и лёгкий, хорош для утра."},
-    {"name_ru":"Шугэнди","year":None,"name_cn":{"chars":"(транслит)","pinyin":"Shugendi"},"times":["morning"],"states":["tired"],"exp":["rare"],"taste":"soft","desc":"Нежный утренний чай."},
-    {"name_ru":"Бай Хао Инь Чжень","year":None,"name_cn":{"chars":"白毫银针","pinyin":"Bái Háo Yín Zhēn"},"times":["morning","day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Белый чай, деликатный, универсальный."}
+    {"name_ru":"Шен пуэр 2023, Рассыпной, Юньнань","year":2023,"name_cn":{"chars":"生普洱（临沧）","pinyin":"Shēng Pǔ'ěr (Líncāng)"},"times":["morning","day"],"states":["tired","focus"],"exp":["regular"],"taste":"bitter","desc":"Даёт ясную бодрость, хорошо собирает внимание и не перегружает.Подходит для утра и первой половины дня, особенно когда нужно включиться в работу."},
+    {"name_ru":"Шен пуэр Биндао 2015, древние деревья","year":2015,"name_cn":{"chars":"冰岛古树普洱","pinyin":"Bīngdǎo gǔshù Pǔ'ěr"},"times":["morning"],"states":["tired"],"exp":["expert"],"taste":"bitter","desc":"Глубокий, плотный и требовательный чай.Лучше подойдёт тем, кто уже знаком с пуэрами и любит выраженный характер."},
+    {"name_ru":"Шен пуэр Бо Хэ Тан","year":2017,"name_cn":{"chars":"(транслит)","pinyin":"Bo He Tan"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"bitter","desc":"Хорош для дневного чаепития, когда нужна собранность без резкой стимуляции.Вкус плотный, с характерной шеновой горчинкой."},
+    {"name_ru":"Шу пуэр 7592, Menghai","year":2019,"name_cn":{"chars":"勐海 7592 熟普洱","pinyin":"Měnghǎi 7592 Shú Pǔ'ěr"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Мягко согревает, расслабляет и создаёт ощущение устойчивости.Отличный вариант для вечера или спокойного завершения дня."},
+    {"name_ru":"Шу пуэр Brown Peacock","year":2008,"name_cn":{"chars":"(транслит)","pinyin":"Brown Peacock"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Подходит для вечернего чаепития и расслабленного состояния.Хороший вариант, если хочется тепла и комфорта."},
+    {"name_ru":"Да Хун Пао","year":2025,"name_cn":{"chars":"大红袍","pinyin":"Dà Hóng Páo"},"times":["day"],"states":["focus","no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Плотный, многослойный вкус, хорошо держит внимание.Подходит для дневного чаепития и вдумчивого состояния."},
+    {"name_ru":"ГАББА Да Хун Пао, Уишань","year":2025,"name_cn":{"chars":"GABA 大红袍","pinyin":"GABA Dà Hóng Páo"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"dense","desc":"Сохраняет глубину вкуса, но действует мягче и спокойнее.Подходит для концентрации без напряжения."},
+    {"name_ru":"ГАББА улун Чёрный жемчуг","year":2025,"name_cn":{"chars":"GABA 乌龙·黑珍珠","pinyin":"GABA Hēi Zhēnzhū"},"times":["day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Хорош для неспешного чаепития без конкретной задачи.Лёгкий, комфортный и ненавязчивый."},
+    {"name_ru":"ГАББА улун Дикий мёд","year":2025,"name_cn":{"chars":"GABA 乌龙·野蜜","pinyin":"GABA Yěmì"},"times":["day"],"states":["no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Даёт ощущение глубины и тепла.Подходит для дневного чаепития в спокойном ритме."},
+    {"name_ru":"Лунцзин","year":2025,"name_cn":{"chars":"龙井","pinyin":"Lóngjǐng"},"times":["morning"],"states":["tired"],"exp":["rare","regular"],"taste":"soft","desc":"Свежий, лёгкий и понятный по вкусу.Хорош для утра и для тех, кто только начинает знакомство с китайским чаем."},
+    {"name_ru":"Шугэнди","year":2025,"name_cn":{"chars":"(транслит)","pinyin":"Shugendi"},"times":["morning"],"states":["tired"],"exp":["rare"],"taste":"soft","desc":"Подходит для утреннего чаепития и спокойного начала дня.Хороший вариант для новичков."},
+    {"name_ru":"Бай Хао Инь Чжень","year":2023,"name_cn":{"chars":"白毫银针","pinyin":"Bái Háo Yín Zhēn"},"times":["morning","day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Очень деликатный, спокойный и чистый по вкусу.Подходит для любого времени дня, когда не хочется перегрузки."}
 ]
 
 # ===== Простая in-memory память (на будущее можно заменить DB) =====
@@ -180,8 +180,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     }
 
     text = (
-        "Подберу чай под твоё состояние.\n"
-        "Ответь на несколько вопросов.\n\n"
+        "Я помогу индивидуально подобрать чай.\n"
+        "Ответьте на несколько вопросов.\n\n"
         "В какое время дня ты хочешь пить чай?"
     )
 
@@ -210,7 +210,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             keyboard = InlineKeyboardMarkup([
                 [InlineKeyboardButton("Собраться и сфокусироваться", callback_data="state_focus")],
                 [InlineKeyboardButton("Расслабиться", callback_data="state_relax")],
-                [InlineKeyboardButton("Просто для удовольствия", callback_data="state_easy")]
+                [InlineKeyboardButton("Просто пить без задачи", callback_data="state_easy")]
             ])
             await send_text(update, "Какое состояние ты хочешь получить от чая?", keyboard, edit=True)
             return
@@ -218,21 +218,21 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if data.startswith("state_"):
             user["state"] = data.split("_",1)[1]
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Только начинаю", callback_data="exp_beginner")],
-                [InlineKeyboardButton("Иногда пью", callback_data="exp_middle")],
+                [InlineKeyboardButton("Только перестал пить чай с сахаром", callback_data="exp_beginner")],
+                [InlineKeyboardButton("Уже не пью чай в пакетиках", callback_data="exp_middle")],
                 [InlineKeyboardButton("Хорошо разбираюсь", callback_data="exp_advanced")]
             ])
-            await send_text(update, "Какой у тебя опыт с китайским чаем?", keyboard, edit=True)
+            await send_text(update, "Насколько ты знаком с китайским чаем?", keyboard, edit=True)
             return
 
         if data.startswith("exp_"):
             user["experience"] = data.split("_",1)[1]
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Лёгкий и свежий", callback_data="taste_light")],
-                [InlineKeyboardButton("Насыщенный и глубокий", callback_data="taste_deep")],
+                [InlineKeyboardButton("Лёгкое и свежее", callback_data="taste_light")],
+                [InlineKeyboardButton("Насыщенное и глубокое", callback_data="taste_deep")],
                 [InlineKeyboardButton("Не знаю, доверюсь подбору", callback_data="taste_any")]
             ])
-            await send_text(update, "Что тебе ближе по вкусу?", keyboard, edit=True)
+            await send_text(update, "По вкусу тебе сейчас ближе что-то…", keyboard, edit=True)
             return
 
         if data.startswith("taste_"):
@@ -240,8 +240,9 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             tea = pick_tea(user)
             # кнопки результата
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Попробовать другое", callback_data="another")],
-                [InlineKeyboardButton("Написать для заказа", url=ORDER_URL)]
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти.
+", callback_data="another")],
+                [InlineKeyboardButton("Спросить про этот чай", url=ORDER_URL)]
             ])
             # отправляем с фото если есть (в базе можно добавить поле image: "https://...")
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
@@ -251,8 +252,9 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # показать другой чай по той же логике - просто повторно вызываем pick_tea
             tea = pick_tea(user)
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Попробовать другое", callback_data="another")],
-                [InlineKeyboardButton("Написать для заказа", url=ORDER_URL)]
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти.
+", callback_data="another")],
+                [InlineKeyboardButton("Спросить про этот чай", url=ORDER_URL)]
             ])
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
             return
