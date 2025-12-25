@@ -210,7 +210,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             keyboard = InlineKeyboardMarkup([
                 [InlineKeyboardButton("Собраться и сфокусироваться", callback_data="state_focus")],
                 [InlineKeyboardButton("Расслабиться", callback_data="state_relax")],
-                [InlineKeyboardButton("Просто пить без задачи", callback_data="state_easy")]
+                [InlineKeyboardButton("Просто пить без задачи", callback_data="state_no_task")]
             ])
             await send_text(update, "Какое состояние ты хочешь получить от чая?", keyboard, edit=True)
             return
@@ -218,9 +218,9 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if data.startswith("state_"):
             user["state"] = data.split("_",1)[1]
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Только перестал пить чай с сахаром", callback_data="exp_beginner")],
-                [InlineKeyboardButton("Уже не пью чай в пакетиках", callback_data="exp_middle")],
-                [InlineKeyboardButton("Хорошо разбираюсь", callback_data="exp_advanced")]
+                [InlineKeyboardButton("Только перестал пить чай с сахаром", callback_data="exp_rare")],
+                [InlineKeyboardButton("Уже не пью чай в пакетиках", callback_data="exp_regular")],
+                [InlineKeyboardButton("Хорошо разбираюсь", callback_data="exp_expert")]
             ])
             await send_text(update, "Насколько ты знаком с китайским чаем?", keyboard, edit=True)
             return
@@ -228,8 +228,8 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if data.startswith("exp_"):
             user["experience"] = data.split("_",1)[1]
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Лёгкое и свежее", callback_data="taste_light")],
-                [InlineKeyboardButton("Насыщенное и глубокое", callback_data="taste_deep")],
+                [InlineKeyboardButton("Лёгкое и свежее", callback_data="taste_soft")],
+                [InlineKeyboardButton("Насыщенное и глубокое", callback_data="taste_dense")],
                 [InlineKeyboardButton("Не знаю, доверюсь подбору", callback_data="taste_any")]
             ])
             await send_text(update, "По вкусу тебе сейчас ближе что-то…", keyboard, edit=True)
@@ -240,8 +240,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             tea = pick_tea(user)
             # кнопки результата
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Вот ещё вариант, который может подойти.
-", callback_data="another")],
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти.", callback_data="another")],
                 [InlineKeyboardButton("Спросить про этот чай", url=ORDER_URL)]
             ])
             # отправляем с фото если есть (в базе можно добавить поле image: "https://...")
