@@ -181,26 +181,13 @@ async def send_tea_with_photo(update: Update, context: ContextTypes.DEFAULT_TYPE
         await send_text(update, caption, keyboard, edit=edit)
 
 # ===== Хэндлеры =====
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
+async def is_subscribed(context: ContextTypes.DEFAULT_TYPE, user_id: int) -> bool:
+    try:
+        member = await context.bot.get_chat_member(CHANNEL_USERNAME, user_id)
+        return member.status in ("member", "administrator", "creator")
+    except Exception:
+        return False
 
-    if not await is_subscribed(context, user_id):
-        keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton(
-                "Подписаться на канал",
-                url="https://t.me/MoonTea48"
-            )],
-            [InlineKeyboardButton(
-                "Я подписался, проверить",
-                callback_data="check_sub"
-            )]
-        ])
-        await send_text(
-            update,
-            "Чтобы пройти подбор чая, подпишись на канал.",
-            keyboard
-        )
-        return
 
     chat = update.effective_chat.id
     USERS[chat] = {
