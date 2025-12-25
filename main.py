@@ -24,7 +24,7 @@ if not TOKEN:
     logger.error("BOT_TOKEN не задан. Установи переменную окружения BOT_TOKEN.")
     raise SystemExit("BOT_TOKEN не задан")
 
-ORDER_URL = "https://t.me/ТВОЙ_НИК"  # замени на свой ник
+ORDER_URL = "https://t.me/m/FSNnxRr_NGIy"  # замени на свой ник
 
 # ===== БАЗА ЧАЁВ =====
 TEAS = [
