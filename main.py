@@ -24,7 +24,6 @@ if not TOKEN:
     logger.error("BOT_TOKEN не задан. Установи переменную окружения BOT_TOKEN.")
     raise SystemExit("BOT_TOKEN не задан")
 
-ORDER_URL = "https://t.me/m/FSNnxRr_NGIy"
 CHANNEL_USERNAME = "@MoonTea48"
 
 # ===== БАЗА ЧАЁВ =====
