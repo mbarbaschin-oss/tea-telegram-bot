@@ -29,19 +29,129 @@ CHANNEL_USERNAME = "@MoonTea48"
 
 # ===== БАЗА ЧАЁВ =====
 TEAS = [
-    {"name_ru":"Шен пуэр 2023, Рассыпной, Юньнань","year":2023,"name_cn":{"chars":"生普洱（临沧）","pinyin":"Shēng Pǔ'ěr (Líncāng)"},"times":["morning","day"],"states":["tired","focus"],"exp":["regular"],"taste":"bitter","desc":"Даёт ясную бодрость, хорошо собирает внимание и не перегружает. Подходит для утра и первой половины дня, особенно когда нужно включиться в работу."},
-    {"name_ru":"Шен пуэр Биндао 2015, древние деревья","year":2015,"name_cn":{"chars":"冰岛古树普洱","pinyin":"Bīngdǎo gǔshù Pǔ'ěr"},"times":["morning"],"states":["tired"],"exp":["expert"],"taste":"bitter","desc":"Глубокий, плотный и требовательный чай. Лучше подойдёт тем, кто уже знаком с пуэрами и любит выраженный характер."},
-    {"name_ru":"Шен пуэр Бо Хэ Тан","year":2017,"name_cn":{"chars":"(транслит)","pinyin":"Bo He Tan"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"bitter","desc":"Хорош для дневного чаепития, когда нужна собранность без резкой стимуляции. Вкус плотный, с характерной шеновой горчинкой."},
-    {"name_ru":"Шу пуэр 7592, Menghai","year":2019,"name_cn":{"chars":"勐海 7592 熟普洱","pinyin":"Měnghǎi 7592 Shú Pǔ'ěr"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Мягко согревает, расслабляет и создаёт ощущение устойчивости. Отличный вариант для вечера или спокойного завершения дня."},
-    {"name_ru":"Шу пуэр Brown Peacock","year":2008,"name_cn":{"chars":"(транслит)","pinyin":"Brown Peacock"},"times":["evening"],"states":["calm"],"exp":["rare","regular","expert"],"taste":"dense","desc":"Подходит для вечернего чаепития и расслабленного состояния. Хороший вариант, если хочется тепла и комфорта."},
-    {"name_ru":"Да Хун Пао","year":2025,"name_cn":{"chars":"大红袍","pinyin":"Dà Hóng Páo"},"times":["day"],"states":["focus","no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Плотный, многослойный вкус, хорошо держит внимание. Подходит для дневного чаепития и вдумчивого состояния."},
-    {"name_ru":"ГАББА Да Хун Пао, Уишань","year":2025,"name_cn":{"chars":"GABA 大红袍","pinyin":"GABA Dà Hóng Páo"},"times":["day"],"states":["focus"],"exp":["regular","expert"],"taste":"dense","desc":"Сохраняет глубину вкуса, но действует мягче и спокойнее. Подходит для концентрации без напряжения."},
-    {"name_ru":"ГАББА улун Чёрный жемчуг","year":2025,"name_cn":{"chars":"GABA 乌龙·黑珍珠","pinyin":"GABA Hēi Zhēnzhū"},"times":["day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Хорош для неспешного чаепития без конкретной задачи. Лёгкий, комфортный и ненавязчивый."},
-    {"name_ru":"ГАББА улун Дикий мёд","year":2025,"name_cn":{"chars":"GABA 乌龙·野蜜","pinyin":"GABA Yěmì"},"times":["day"],"states":["no_task"],"exp":["regular","expert"],"taste":"dense","desc":"Даёт ощущение глубины и тепла. Подходит для дневного чаепития в спокойном ритме."},
-    {"name_ru":"Лунцзин","year":2025,"name_cn":{"chars":"龙井","pinyin":"Lóngjǐng"},"times":["morning"],"states":["tired"],"exp":["rare","regular"],"taste":"soft","desc":"Свежий, лёгкий и понятный по вкусу. Хорош для утра и для тех, кто только начинает знакомство с китайским чаем."},
-    {"name_ru":"Шугэнди","year":2025,"name_cn":{"chars":"(транслит)","pinyin":"Shugendi"},"times":["morning"],"states":["tired"],"exp":["rare"],"taste":"soft","desc":"Подходит для утреннего чаепития и спокойного начала дня. Хороший вариант для новичков."},
-    {"name_ru":"Бай Хао Инь Чжень","year":2023,"name_cn":{"chars":"白毫银针","pinyin":"Bái Háo Yín Zhēn"},"times":["morning","day","evening"],"states":["no_task"],"exp":["rare","regular","expert"],"taste":"soft","desc":"Очень деликатный, спокойный и чистый по вкусу. Подходит для любого времени дня, когда не хочется перегрузки."}
+    {
+        "name_ru": "Шен пуэр 2023, Рассыпной, Юньнань",
+        "year": 2023,
+        "order_url": "https://t.me/m/0ytUIqIgNWE6",
+        "name_cn": {"chars": "生普洱（临沧）", "pinyin": "Shēng Pǔ'ěr (Líncāng)"},
+        "times": ["morning", "day"],
+        "states": ["tired", "focus"],
+        "exp": ["regular"],
+        "taste": "bitter",
+        "desc": "Даёт ясную бодрость, хорошо собирает внимание и не перегружает. Подходит для утра и первой половины дня, особенно когда нужно включиться в работу."
+    },
+    {
+        "name_ru": "Шен пуэр Биндао 2015, древние деревья",
+        "year": 2015,
+        "order_url": "https://t.me/m/kTVZxtvEMGFi",
+        "name_cn": {"chars": "冰岛古树普洱", "pinyin": "Bīngdǎo gǔshù Pǔ'ěr"},
+        "times": ["morning"],
+        "states": ["tired"],
+        "exp": ["expert"],
+        "taste": "bitter",
+        "desc": "Глубокий, плотный и требовательный чай. Лучше подойдёт тем, кто уже знаком с пуэрами и любит выраженный характер."
+    },
+    {
+        "name_ru": "Шен пуэр Бо Хэ Тан",
+        "year": 2017,
+        "order_url": "https://t.me/m/hVeOrGytYmQy",
+        "name_cn": {"chars": "(транслит)", "pinyin": "Bo He Tan"},
+        "times": ["day"],
+        "states": ["focus"],
+        "exp": ["regular", "expert"],
+        "taste": "bitter",
+        "desc": "Хорош для дневного чаепития, когда нужна собранность без резкой стимуляции. Вкус плотный, с характерной шеновой горчинкой."
+    },
+    {
+        "name_ru": "Шу пуэр 7592, Menghai",
+        "year": 2019,
+        "order_url": "https://t.me/m/luTjaZ5LOTcy",
+        "name_cn": {"chars": "勐海 7592 熟普洱", "pinyin": "Měnghǎi 7592 Shú Pǔ'ěr"},
+        "times": ["evening"],
+        "states": ["calm"],
+        "exp": ["rare", "regular", "expert"],
+        "taste": "dense",
+        "desc": "Мягко согревает, расслабляет и создаёт ощущение устойчивости. Отличный вариант для вечера или спокойного завершения дня."
+    },
+    {
+        "name_ru": "Шу пуэр Brown Peacock",
+        "year": 2008,
+        "order_url": "https://t.me/m/EVBYr97CMGEy",
+        "name_cn": {"chars": "(транслит)", "pinyin": "Brown Peacock"},
+        "times": ["evening"],
+        "states": ["calm"],
+        "exp": ["rare", "regular", "expert"],
+        "taste": "dense",
+        "desc": "Подходит для вечернего чаепития и расслабленного состояния. Хороший вариант, если хочется тепла и комфорта."
+    },
+    {
+        "name_ru": "Да Хун Пао",
+        "year": 2025,
+        "order_url": "https://t.me/m/swZVyMAFMTA6",
+        "name_cn": {"chars": "大红袍", "pinyin": "Dà Hóng Páo"},
+        "times": ["day"],
+        "states": ["focus", "no_task"],
+        "exp": ["regular", "expert"],
+        "taste": "dense",
+        "desc": "Плотный, многослойный вкус, хорошо держит внимание. Подходит для дневного чаепития и вдумчивого состояния."
+    },
+    {
+        "name_ru": "ГАББА Да Хун Пао, Уишань",
+        "year": 2025,
+        "order_url": "https://t.me/m/u0hTd7ESMDli",
+        "name_cn": {"chars": "GABA 大红袍", "pinyin": "GABA Dà Hóng Páo"},
+        "times": ["day"],
+        "states": ["focus"],
+        "exp": ["regular", "expert"],
+        "taste": "dense",
+        "desc": "Сохраняет глубину вкуса, но действует мягче и спокойнее. Подходит для концентрации без напряжения."
+    },
+    {
+        "name_ru": "ГАББА улун Чёрный жемчуг",
+        "year": 2025,
+        "order_url": "https://t.me/m/h7y1E7scYzAy",
+        "name_cn": {"chars": "GABA 乌龙·黑珍珠", "pinyin": "GABA Hēi Zhēnzhū"},
+        "times": ["day", "evening"],
+        "states": ["no_task"],
+        "exp": ["rare", "regular", "expert"],
+        "taste": "soft",
+        "desc": "Хорош для неспешного чаепития без конкретной задачи. Лёгкий, комфортный и ненавязчивый."
+    },
+    {
+        "name_ru": "Лунцзин",
+        "year": 2025,
+        "order_url": "https://t.me/m/wIx8_EZsOWU6",
+        "name_cn": {"chars": "龙井", "pinyin": "Lóngjǐng"},
+        "times": ["morning"],
+        "states": ["tired"],
+        "exp": ["rare", "regular"],
+        "taste": "soft",
+        "desc": "Свежий, лёгкий и понятный по вкусу. Хорош для утра и для тех, кто только начинает знакомство с китайским чаем."
+    },
+    {
+        "name_ru": "Шугэнди",
+        "year": 2025,
+        "order_url": "https://t.me/m/LkPLv3d-ZDEy",
+        "name_cn": {"chars": "(транслит)", "pinyin": "Shugendi"},
+        "times": ["morning"],
+        "states": ["tired"],
+        "exp": ["rare"],
+        "taste": "soft",
+        "desc": "Подходит для утреннего чаепития и спокойного начала дня. Хороший вариант для новичков."
+    },
+    {
+        "name_ru": "Бай Хао Инь Чжень",
+        "year": 2023,
+        "order_url": "https://t.me/m/s87arDRuMDEy",
+        "name_cn": {"chars": "白毫银针", "pinyin": "Bái Háo Yín Zhēn"},
+        "times": ["morning", "day", "evening"],
+        "states": ["no_task"],
+        "exp": ["rare", "regular", "expert"],
+        "taste": "soft",
+        "desc": "Очень деликатный, спокойный и чистый по вкусу. Подходит для любого времени дня, когда не хочется перегрузки."
+    }
 ]
+
 
 # ===== Простая in-memory память (на будущее можно заменить DB) =====
 USERS = {}  # chat_id -> {time,state,experience,taste,shown:[]}
