@@ -251,8 +251,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # показать другой чай по той же логике - просто повторно вызываем pick_tea
             tea = pick_tea(user)
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Вот ещё вариант, который может подойти.
-", callback_data="another")],
+                [InlineKeyboardButton("Вот ещё вариант, который может подойти.", callback_data="another")],
                 [InlineKeyboardButton("Спросить про этот чай", url=ORDER_URL)]
             ])
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
