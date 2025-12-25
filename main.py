@@ -377,12 +377,11 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if data.startswith("taste_"):
             user["taste"] = data.split("_", 1)[1]
             tea = pick_tea(user)
-
+            
             keyboard = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
-                [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
-            ])
-
+    [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
+    [InlineKeyboardButton("Спросить про этот чай", url=tea.get("order_url"))]
+])
             await send_tea_with_photo(update, context, tea, keyboard, edit=True)
             return
 
