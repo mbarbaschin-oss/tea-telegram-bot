@@ -19,6 +19,7 @@ if not TOKEN:
     raise SystemExit("BOT_TOKEN не задан")
 
 CHANNEL_USERNAME = "@MoonTea48"
+CAT_PHOTO_URL = "https://t.me/zapiskiychaynika/35?comment=32"
 
 # ===== БАЗА ЧАЁВ =====
 TEAS = [
@@ -42,7 +43,7 @@ TEAS = [
         "states": ["tired"],
         "exp": ["expert"],
         "taste": "bitter",
-        "desc": "Глубокий, плотный и требовательный чай."
+        "desc": "Глубокий, плотный, интересный чай."
     },
     {
         "name_ru": "Шен пуэр Бо Хэ Тан",
@@ -86,7 +87,7 @@ TEAS = [
         "states": ["focus", "no_task"],
         "exp": ["regular", "expert"],
         "taste": "dense",
-        "desc": "Плотный уишаньский улун."
+        "desc": "Плотный базовый уишаньский улун."
     },
     {
         "name_ru": "ГАББА Да Хун Пао, Уишань",
@@ -213,7 +214,7 @@ async def start(update, context):
             [InlineKeyboardButton("Подписаться", url="https://t.me/MoonTea48")],
             [InlineKeyboardButton("Я подписался", callback_data="check_sub")]
         ])
-        await send_text(update, "Подпишись на канал для доступа.", keyboard)
+        await send_text(update, "Чтобы бот работал, нужно быть подписанным на канал.", keyboard)
         return
 
     USERS[update.effective_chat.id] = {
@@ -229,7 +230,10 @@ async def start(update, context):
         [InlineKeyboardButton("День", callback_data="time_day")],
         [InlineKeyboardButton("Вечер", callback_data="time_evening")]
     ])
-    await send_text(update, "Когда ты хочешь пить чай?", keyboard)
+    await update.message.reply_photo(
+    photo=CAT_PHOTO_URL,
+    caption="Привет. Давай подберем чай под твой день.\nСкажи, когда ты планируешь пить чай.",
+    reply_markup=keyboard
 
 async def handle(update, context):
     query = update.callback_query
@@ -248,19 +252,19 @@ async def handle(update, context):
     if data.startswith("time_"):
         user["time"] = data.split("_")[1]
         keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("Сфокусироваться", callback_data="state_focus")],
-            [InlineKeyboardButton("Расслабиться", callback_data="state_calm")],
-            [InlineKeyboardButton("Без задачи", callback_data="state_no_task")]
+            [InlineKeyboardButton("Собраться и сфокусироваться", callback_data="state_focus")],
+            [InlineKeyboardButton("Переключиться", callback_data="state_calm")],
+            [InlineKeyboardButton("Просто без цели", callback_data="state_no_task")]
         ])
-        await send_text(update, "Какое состояние нужно?", keyboard, edit=True)
+        await send_text(update, "Чего бы ты сейчас хотел?", keyboard, edit=True)
         return
 
     if data.startswith("state_"):
         user["state"] = data.split("_")[1]
         keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("Новичок", callback_data="exp_rare")],
-            [InlineKeyboardButton("Опыт есть", callback_data="exp_regular")],
-            [InlineKeyboardButton("Разбираюсь", callback_data="exp_expert")]
+            [InlineKeyboardButton("Я только начинаю", callback_data="exp_rare")],
+            [InlineKeyboardButton("Пробовал разное", callback_data="exp_regular")],
+            [InlineKeyboardButton("Хорошо разбираюсь", callback_data="exp_expert")]
         ])
         await send_text(update, "Твой опыт с чаем?", keyboard, edit=True)
         return
@@ -271,7 +275,7 @@ async def handle(update, context):
 
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Попробовать другой", callback_data="another")],
-            [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
+            [InlineKeyboardButton("Узнать больше", url=tea["order_url"])]
         ])
         await send_tea(update, context, tea, keyboard)
         return
@@ -280,7 +284,7 @@ async def handle(update, context):
         tea = pick_tea(user)
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Попробовать другой", callback_data="another")],
-            [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
+            [InlineKeyboardButton("Узнать больше о чае и получить скидку 10%", url=tea["order_url"])]
         ])
         await send_tea(update, context, tea, keyboard)
 
