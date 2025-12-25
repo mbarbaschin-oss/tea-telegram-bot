@@ -234,6 +234,7 @@ async def start(update, context):
     photo=CAT_PHOTO_URL,
     caption="Привет. Давай подберем чай под твой день.\nСкажи, когда ты планируешь пить чай.",
     reply_markup=keyboard
+)
 
 async def handle(update, context):
     query = update.callback_query
