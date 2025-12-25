@@ -197,7 +197,10 @@ async def send_text(update, text, keyboard=None, edit=False):
     if update.callback_query:
         msg = update.callback_query.message
         if edit:
-            await msg.edit_text(text, reply_markup=keyboard)
+            try:
+                await msg.edit_text(text, reply_markup=keyboard)
+            except:
+                await msg.reply_text(text, reply_markup=keyboard)
         else:
             await msg.reply_text(text, reply_markup=keyboard)
     else:
