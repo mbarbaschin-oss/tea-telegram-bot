@@ -230,11 +230,14 @@ async def start(update, context):
         [InlineKeyboardButton("День", callback_data="time_day")],
         [InlineKeyboardButton("Вечер", callback_data="time_evening")]
     ])
-    await update.message.reply_photo(
+    msg = update.message or update.callback_query.message
+
+await msg.reply_photo(
     photo=CAT_PHOTO_URL,
     caption="Привет. Давай подберем чай под твой день.\nСкажи, когда ты планируешь пить чай.",
     reply_markup=keyboard
 )
+
 
 async def handle(update, context):
     query = update.callback_query
