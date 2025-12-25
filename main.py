@@ -1,4 +1,8 @@
-# main.py
+# main.py 
+ORDER_URL = "https://t.me/m/FSNnxRr_NGIy"
+CHANNEL_USERNAME = "@MoonTea48"
+
+
 import os
 import logging
 from typing import Optional
@@ -70,6 +74,14 @@ def pick_tea(user: dict):
 
     # 1. strict filter
     candidates = unseen([t for t in TEAS if strict_pred(t)])
+
+    async def is_subscribed(context: ContextTypes.DEFAULT_TYPE, user_id: int) -> bool:
+    try:
+        member = await context.bot.get_chat_member(CHANNEL_USERNAME, user_id)
+        return member.status in ("member", "administrator", "creator")
+    except Exception:
+        return False
+
 
     # 2. prefer taste if possible
     if candidates:
@@ -170,6 +182,26 @@ async def send_tea_with_photo(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 # ===== Хэндлеры =====
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+
+    if not await is_subscribed(context, user_id):
+        keyboard = InlineKeyboardMarkup([
+            [InlineKeyboardButton(
+                "Подписаться на канал",
+                url="https://t.me/MoonTea48"
+            )],
+            [InlineKeyboardButton(
+                "Я подписался, проверить",
+                callback_data="check_sub"
+            )]
+        ])
+        await send_text(
+            update,
+            "Чтобы пройти подбор чая, подпишись на канал.",
+            keyboard
+        )
+        return
+
     chat = update.effective_chat.id
     USERS[chat] = {
         "time": None,
