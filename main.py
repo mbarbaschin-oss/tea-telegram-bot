@@ -378,10 +378,10 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user["taste"] = data.split("_",1)[1]
             tea = pick_tea(user)
             # кнопки результата
-           keyboard = InlineKeyboardMarkup([
+         keyboard = InlineKeyboardMarkup([
     [InlineKeyboardButton("Вот ещё вариант, который может подойти", callback_data="another")],
     [InlineKeyboardButton("Спросить про этот чай", url=tea["order_url"])]
-])
+
 
 
 
